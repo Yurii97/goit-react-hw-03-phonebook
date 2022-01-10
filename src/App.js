@@ -25,7 +25,11 @@ class App extends Component {
   }
 
   addNewContact = newContact => {
-    if (this.state.contacts.some(contact => contact.name === newContact.name)) {
+    if (
+      this.state.contacts.some(
+        contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
+      )
+    ) {
       toast.error('contact with such name already exists');
       return;
     }
